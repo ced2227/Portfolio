@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cedric Carillo | BSIT Student</title>
+<meta name="description" content="Cedric Carillo, BSIT student with skills in programming, databases, and network administration.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1226;--panel:#101b36;--line:#22314f;--text:#eaf0fb;--muted:#93a1bd;--ice:#6fd3ff;--violet:#a78bfa}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font:17px/1.7 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ice);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;letter-spacing:-.02em;line-height:1.08}
+header{position:fixed;inset:0 0 auto 0;z-index:10;background:linear-gradient(var(--bg),transparent)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
+.logo{font:600 1.35rem Fraunces,serif;text-decoration:none}
+nav{display:flex;gap:28px;align-items:center}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.97rem;padding:4px 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--text);border-color:var(--ice)}
+nav a.cta{color:var(--bg);background:var(--ice);padding:8px 18px;border-radius:99px;border:0}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;pointer-events:none}
+.hero a{pointer-events:auto}
+.kicker{color:var(--ice);font-weight:500;margin-bottom:18px}
+h1{font-size:clamp(3.4rem,10vw,7.4rem);max-width:9ch}
+.sub{font-size:clamp(1.15rem,2.4vw,1.5rem);color:var(--muted);max-width:36ch;margin:26px 0 36px}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{padding:14px 28px;border-radius:99px;border:1px solid var(--line);text-decoration:none;font-weight:600;background:rgba(16,27,54,.6);backdrop-filter:blur(6px);transition:border-color .2s,background .2s}
+.btn:hover{border-color:var(--ice)}
+.btn.main{background:var(--ice);color:var(--bg);border-color:var(--ice)}
+.hint{position:absolute;right:28px;bottom:28px;color:var(--muted);font-size:.85rem}
+section.s{padding:128px 0 0}
+h2{font-size:clamp(2.1rem,5vw,3.2rem);margin-bottom:44px}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:72px}
+.two p{color:var(--muted);font-size:1.12rem;max-width:56ch}
+.facts{border-top:1px solid var(--line)}
+.facts div{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted)}.facts dd{font-weight:600;text-align:right}
+.avatar{width:112px;height:112px;border-radius:24px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;font:600 2.2rem Fraunces,serif;color:var(--ice);margin-bottom:28px;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:48px}
+.cols>div{border-top:2px solid var(--ice);padding-top:20px}
+.cols h3{font-size:1.5rem;margin-bottom:6px}
+.cols p{color:var(--muted);font-size:.98rem;margin-bottom:16px}
+.cols li{list-style:none;padding:7px 0;border-bottom:1px solid var(--line)}
+.proj{display:grid;grid-template-columns:1fr 1.2fr auto;gap:12px 40px;align-items:start;padding:36px 0;border-top:1px solid var(--line);transition:background .2s}
+.proj:last-child{border-bottom:1px solid var(--line)}
+.proj:hover{background:linear-gradient(90deg,var(--panel),transparent)}
+.proj h3{font-size:1.7rem}
+.proj p{color:var(--muted)}
+.proj .tech{color:var(--ice);font-size:.95rem;margin-top:8px}
+.proj a.go{color:var(--text);font-weight:600;white-space:nowrap}
+.edu{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.edu span{color:var(--muted)}
+.edu h3{font-size:1.5rem;margin-bottom:4px}
+.edu p{color:var(--muted)}
+.contact{text-align:left}
+.mail{font:600 clamp(1.5rem,5.2vw,3.6rem) Fraunces,serif;color:var(--ice);word-break:break-all;text-decoration:none;border-bottom:2px solid var(--line)}
+.mail:hover{border-color:var(--ice)}
+footer{margin-top:120px;border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.92rem}
+@media(max-width:820px){
+nav a:not(.cta){display:none}
+.two{grid-template-columns:1fr;gap:40px}
+.proj{grid-template-columns:1fr}
+.edu{grid-template-columns:1fr;gap:4px}
+section.s{padding-top:96px}
+.hint{display:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.proj{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#home">Cedric Carillo</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a class="cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="kicker">BSIT student, open to internships</p>
+    <h1>Cedric Carillo</h1>
+    <p class="sub">I build database and programming systems, and keep the networks behind them running.</p>
+    <div class="btns">
+      <a class="btn main" href="#projects">View my work</a>
+      <!-- Upload your PDF to this repo as resume.pdf -->
+      <a class="btn" href="resume.pdf" download>Download resume</a>
+      <!-- Replace your-username with your GitHub username -->
+      <a class="btn" href="https://github.com/your-username">GitHub</a>
+    </div>
+  </div>
+  <p class="hint">Move your cursor to connect the nodes</p>
+</section>
+
+<section class="s" id="about"><div class="wrap">
+  <h2>About</h2>
+  <div class="two">
+    <div>
+      <!-- To use your photo: upload photo.jpg to the repo and replace "CC" with <img src="photo.jpg" alt="Cedric Carillo"> -->
+      <div class="avatar">CC</div>
+      <p>I'm a Bachelor of Science in Information Technology student with solid skills in programming and network administration. In my coursework I've built database systems and programming systems, and I'm looking for a chance to apply them on real projects with a team.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Program</dt><dd>BS Information Technology</dd></div>
+      <div><dt>Year level</dt><dd>3rd year</dd></div>
+      <div><dt>Focus</dt><dd>Programming, databases, networks</dd></div>
+      <div><dt>Email</dt><dd>russelcarillo36@gmail.com</dd></div>
+    </dl>
+  </div>
+</div></section>
+
+<section class="s" id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <div class="cols">
+    <div><h3>Programming</h3><p>Building and debugging software systems.</p><ul>
+      <!-- Edit these to the languages you actually use -->
+      <li>Python</li><li>Java</li><li>JavaScript</li><li>HTML and CSS</li></ul></div>
+    <div><h3>Databases</h3><p>Designing schemas and writing queries.</p><ul><li>SQL</li><li>PostgreSQL</li><li>Schema design</li></ul></div>
+    <div><h3>Networking</h3><p>Setting up and managing networks.</p><ul>
+      <!-- Edit to match what you've done -->
+      <li>IP addressing</li><li>Routing and switching</li><li>Server setup</li></ul></div>
+  </div>
+</div></section>
+
+<section class="s" id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <article class="proj">
+    <div><h3>[Database system name]</h3><p class="tech">PostgreSQL, [tech]</p></div>
+    <p>Describe what it does and who it is for, for example a system that stores and manages records.</p>
+    <a class="go" href="https://github.com/your-username/repo-name">View on GitHub</a>
+  </article>
+  <article class="proj">
+    <div><h3>[Programming system name]</h3><p class="tech">[Language], [framework]</p></div>
+    <p>Describe the problem it solves and what you built.</p>
+    <a class="go" href="https://github.com/your-username/repo-name">View on GitHub</a>
+  </article>
+</div></section>
+
+<section class="s" id="education"><div class="wrap">
+  <h2>Education</h2>
+  <div class="edu">
+    <span>2023 to present</span>
+    <div><h3>BS Information Technology</h3><p>Your University Name, currently in 3rd year</p></div>
+  </div>
+</div></section>
+
+<section class="s contact" id="contact"><div class="wrap">
+  <h2>Let's work together</h2>
+  <p style="color:var(--muted);margin-bottom:18px;font-size:1.12rem">For internships, projects, or questions, email me:</p>
+  <a class="mail" href="mailto:russelcarillo36@gmail.com">russelcarillo36@gmail.com</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Cedric Carillo</div></footer>
+
+<script>
+(function(){
+var c=document.getElementById('net'),x=c.getContext('2d'),hero=c.parentNode,W,H,P=[],m={x:-999,y:-999},
+reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,on=true;
+function size(){var d=window.devicePixelRatio||1;W=hero.clientWidth;H=hero.clientHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);
+var n=Math.round(Math.min(90,W*H/14000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35})}
+function draw(){x.clearRect(0,0,W,H);
+for(var i=0;i<P.length;i++){var a=P[i];
+if(!reduce){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1}
+for(var j=i+1;j<P.length;j++){var b=P[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+if(d<130){x.strokeStyle='rgba(111,211,255,'+(.22*(1-d/130))+')';x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}
+var mx=a.x-m.x,my=a.y-m.y,md=Math.sqrt(mx*mx+my*my);
+if(md<190){x.strokeStyle='rgba(167,139,250,'+(.7*(1-md/190))+')';x.lineWidth=1.2;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(m.x,m.y);x.stroke();x.lineWidth=1}
+x.fillStyle=md<190?'#a78bfa':'rgba(111,211,255,.8)';x.beginPath();x.arc(a.x,a.y,md<190?2.6:1.8,0,6.3);x.fill()}
+if(on&&!reduce)requestAnimationFrame(draw)}
+hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top;if(reduce)draw()});
+hero.addEventListener('pointerleave',function(){m.x=m.y=-999});
+new IntersectionObserver(function(e){var v=e[0].isIntersecting;if(v&&!on){on=true;draw()}on=v}).observe(hero);
+addEventListener('resize',size);size();draw();
+})();
+var links=document.querySelectorAll('nav a:not(.cta)');
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section').forEach(function(s){io.observe(s)});
+</script>
+</body>
+</html>
