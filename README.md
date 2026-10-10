@@ -1,7 +1,7 @@
 # Cedric Carillo
 **BSIT Student | Programming, Databases & Network Administration**
 
-🌐 **Portfolio:** [ced2227.github.io](https://ced2227.github.io)
+🌐 **Portfolio:** [ced2227.github.io/Portfolio](https://ced2227.github.io/Portfolio/)
 
 📧 **Email:** russelcarillo36@gmail.com
 
