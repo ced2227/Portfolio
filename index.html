@@ -70,6 +70,16 @@ nav a:not(.cta){display:none}
 section.s{padding-top:96px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.proj{transition:none}}
+
+.kicker{min-height:1.7em}
+.caret{display:inline-block;width:2px;height:1.05em;margin-left:3px;background:var(--ice);vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero h1{pointer-events:auto}
+.w{display:inline-block;white-space:nowrap}
+.ch{display:inline-block;opacity:0;transform:translateY(.55em);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i)*60ms + 150ms);transition:translate .25s ease,color .25s ease}
+.ch:hover{translate:0 -.07em;color:var(--ice)}
+@keyframes rise{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.ch{animation:none;opacity:1;transform:none;transition:none}.caret{display:none}}
 </style>
 </head>
 <body>
@@ -86,7 +96,7 @@ section.s{padding-top:96px}
 <section class="hero" id="home">
   <canvas id="net" aria-hidden="true"></canvas>
   <div class="wrap">
-    <p class="kicker">BSIT student, open to internships</p>
+    <p class="kicker"><span id="type">BSIT student, open to internships</span><span class="caret" aria-hidden="true"></span></p>
     <h1>Cedric Carillo</h1>
     <p class="sub">I build database and programming systems, and keep the networks behind them running.</p>
     <div class="btns">
@@ -187,6 +197,22 @@ addEventListener('resize',size);size();draw();
 var links=document.querySelectorAll('nav a:not(.cta)');
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-40% 0px -55% 0px'});
 document.querySelectorAll('section').forEach(function(s){io.observe(s)});
+
+(function(){
+var h=document.querySelector('.hero h1');
+if(h){var t=h.textContent.trim(),i=0;h.setAttribute('aria-label',t);h.textContent='';
+t.split(' ').forEach(function(word,k){if(k)h.appendChild(document.createTextNode(' '));
+var w=document.createElement('span');w.className='w';w.setAttribute('aria-hidden','true');
+word.split('').forEach(function(c){var s=document.createElement('span');s.className='ch';s.style.setProperty('--i',i++);s.textContent=c;w.appendChild(s)});
+h.appendChild(w)})}
+var el=document.getElementById('type');
+if(!el||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+var P=['BSIT student, open to internships','Database and programming systems','Network administration and troubleshooting'],n=0,j=P[0].length,del=true;
+function tick(){
+if(del){j--;el.textContent=P[n].slice(0,j);if(j<=0){del=false;n=(n+1)%P.length;setTimeout(tick,350);return}setTimeout(tick,28)}
+else{j++;el.textContent=P[n].slice(0,j);if(j>=P[n].length){del=true;setTimeout(tick,2200);return}setTimeout(tick,55)}}
+setTimeout(tick,3000);
+})();
 </script>
 </body>
 </html>
